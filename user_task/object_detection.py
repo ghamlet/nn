@@ -8,19 +8,19 @@ GREEN = (0, 255, 0)
 WHITE = (255, 255, 255)
 
 # initialize the video capture object
-video_cap = cv2.VideoCapture("user_task/videos/6c3e546c-86d1-4fa1-afd8-a75ffc401ba2.mp4")
+video_cap = cv2.VideoCapture(0)
 # initialize the video writer object
 
 
 # load the pre-trained YOLOv8n model
-model = YOLO("yolov8n.pt")
+model = YOLO("user_task/yolov8n.pt")
 tracker = DeepSort(max_age=50)
 
 while True:
     start = datetime.datetime.now()
 
     ret, frame = video_cap.read()
-    frame = frame[::, 400:1400]
+  
     # scale_percent = 0 # percent of original size
     # width = int(frame.shape[1] * scale_percent / 100)
     # height = int(frame.shape[0] * scale_percent / 100)
