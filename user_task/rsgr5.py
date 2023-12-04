@@ -1,9 +1,17 @@
 import subprocess
+import time
 
-#cmd = "git commit -m 'efer' "
-#cmd = "git push"
-cmd  = "git add ."
-returned_output = subprocess.check_output(cmd) # returned_output содержит вывод в виде строки байтов
+command = ["git add .",
+           "git commit -m 'hello_from_home' ",
+           "git push"
+           ]
 
-print('Результат выполнения команды:', returned_output.decode("utf-8")) 
-#dfghjkop;
+while True:
+    time.sleep(5)#600
+
+    for cmd in command:
+        returned_output = subprocess.check_output(cmd)
+        print('Результат выполнения команды:', returned_output.decode("utf-8"))
+        time.sleep(2)
+
+         
